@@ -1,0 +1,32 @@
+<h1>Maintenance Reminder Tool</h1>
+
+<p>Enter your mileage:</p>
+
+<input id="mileage" type="number" placeholder="e.g. 60000">
+
+<button onclick="check()">Check Maintenance</button>
+
+<p id="result"></p>
+
+<script>
+function check() {
+  let m = document.getElementById("mileage").value;
+
+  if (!m) {
+    document.getElementById("result").innerText = "Enter mileage first.";
+    return;
+  }
+
+  let msg = "";
+
+  if (m >= 100000) {
+    msg = "Major service likely due (plugs, fluids, inspection).";
+  } else if (m >= 50000) {
+    msg = "Mid service likely due (trans fluid, filters).";
+  } else {
+    msg = "Basic maintenance only (oil changes, inspections).";
+  }
+
+  document.getElementById("result").innerText = msg;
+}
+</script>
